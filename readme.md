@@ -185,3 +185,43 @@ user_description="A friendly software developer who loves coffee and making bad 
 
 
 **Note:** The model should use the example to guide its response and strictly follow the format and instructions.
+
+# Multi-Shot Prompting
+
+## What is Multi-shot Prompting?
+
+Multi-shot prompting involves providing the model with several examples of the desired output alongside clear instructions and constraints. These multiple examples help guide the model by showing it various ways to approach the task, allowing it to generalize the pattern and generate accurate responses.
+
+## How it’s used in SavageScript
+
+In this approach, the model is given multiple examples of roasts and compliments in the required JSON format. This helps the model understand the range of styles, tones, and formats expected, so it can generate a personalized roast and compliment based on the user's input.
+
+## SavageScript (Multi-shot Prompt)
+
+**Task:** Generate a witty, personalized roast and a sincere, uplifting compliment based on the user's input.
+
+**Constraints:**
+
+- The model must rely on multiple provided examples and its pre-trained knowledge.
+- Exactly three examples are included.
+- **Format:** Return a single JSON object with exactly two keys: `"roast"` and `"compliment"`. Do not include any extra text before or after the JSON.
+
+**Examples:**
+
+```json
+{
+  "roast": "You're like a Wi-Fi signal—when you're around, things get slow.",
+  "compliment": "Your intelligence is only surpassed by your kindness."
+}
+```
+```json
+{
+  "roast": "You're the human equivalent of a 404 error.",
+  "compliment": "You have an uncanny ability to make everyone around you feel at ease."
+}
+```
+**Input:**
+user_description="A quiet introvert who enjoys reading mystery novels and solving puzzles."
+
+
+**Note:** The model should use the examples to guide its response and strictly follow the format and instructions.
