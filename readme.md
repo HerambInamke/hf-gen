@@ -149,3 +149,39 @@ The model is instructed to generate a roast and a compliment in a strict JSON fo
 - user_description= "I am always anxious."
 
 **Note:** No examples are provided; the model must adhere strictly to the task and format instructions.
+
+# One-Shot Prompting
+
+## What is One-shot Prompting?
+
+One-shot prompting asks the model to perform a task by providing a single example or demonstration alongside clear instructions and constraints. This example helps the model understand the format and style expected, improving accuracy in generating the desired output.
+
+## How it’s used in SavageScript
+
+The model is given one example of a roast and a compliment in the required JSON format, along with the instructions. This allows the model to learn from the example and then generate a new roast and compliment based on the user's input.
+
+## SavageScript (One-shot Prompt)
+
+**Task:** Generate a witty, personalized roast and a sincere, uplifting compliment based on the user's input.
+
+**Constraints:**
+
+- The model must rely on the single provided example plus its pre-trained knowledge.
+- Exactly one example is included.
+- **Format:** Return a single JSON object with exactly two keys: `"roast"` and `"compliment"`. Do not include any extra text before or after the JSON.
+
+**Example:**
+
+```json
+{
+  "roast": "You're like a cloud—when you disappear, it's a beautiful day.",
+  "compliment": "Your positivity lights up every room you enter."
+}
+```
+
+**Input:**
+
+user_description="A friendly software developer who loves coffee and making bad puns."
+
+
+**Note:** The model should use the example to guide its response and strictly follow the format and instructions.
