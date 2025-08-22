@@ -225,3 +225,38 @@ user_description="A quiet introvert who enjoys reading mystery novels and solvin
 
 
 **Note:** The model should use the examples to guide its response and strictly follow the format and instructions.
+
+# Dynamic Prompting
+
+## What is Dynamic Prompting?
+
+Dynamic prompting allows the model to generate responses based on real-time input, adjusting its behavior as the conversation or task progresses. The model dynamically updates its approach based on the provided context, making it more responsive and tailored to the user's needs. Unlike other methods, the prompt changes continuously depending on the situation.
+
+## How it’s used in SavageScript
+
+In dynamic prompting, the model generates a roast and a compliment based on the user's description, adjusting both the tone and content depending on the given context. The model uses the input information and modifies its approach as necessary, without rigid examples or formats.
+
+## SavageScript (Dynamic Prompt)
+
+**Task:** Generate a witty, personalized roast and a sincere, uplifting compliment based on the user's input.
+
+**Constraints:**
+
+- The model must adjust its approach dynamically based on the input provided.
+- The roast and compliment should be directly tailored to the user’s description.
+- **Format:** Return a single JSON object with exactly two keys: `"roast"` and `"compliment"`. Do not include any extra text before or after the JSON.
+
+**Example:**
+
+```json
+{
+  "roast": "You're like a coffee cup—always warm, but no one really notices until you're gone.",
+  "compliment": "Your love for books shows how deep and thoughtful you are, even in silence."
+}
+```
+**Input:**
+
+user_description="A coffee-loving introvert who’s always buried in books and avoids large gatherings."
+
+
+**Note:** The model should modify its response dynamically based on the provided input, ensuring that the roast and compliment are unique to each user description. The model must follow the required JSON format.
