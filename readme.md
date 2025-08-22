@@ -124,3 +124,28 @@ We provide the ground rules and boundaries to ensure the task is performed well 
 > **"Important context: The roast should be edgy and humorous but MUST AVOID any attacks on protected characteristics... The goal is to poke fun... not to cause genuine harm."**
 >
 > This is the safety layer. It sets the ethical boundaries and ensures the 'savage' roast doesn't cross the line into being genuinely offensive or harmful.
+
+# Zero-Shot Prompting
+
+## What is Zero-shot Prompting?
+
+Zero-shot prompting asks the model to perform a task using only clear instructions and constraints—without providing any examples or demonstrations. It relies on the model's vast pre-trained knowledge to understand the intent of the request and execute it correctly.
+
+## How it’s used in SavageScript
+
+The model is instructed to generate a roast and a compliment in a strict JSON format based only on the instructions. No examples are included in the prompt, forcing the model to rely on its general understanding of "roast," "compliment," and "JSON" to complete the task.
+
+## SavageScript (Zero-shot Prompt)
+
+**Task:** Generate a witty, personalized roast and a sincere, uplifting compliment based on the user's input.
+
+**Constraints:**
+
+- The model must rely entirely on its pre-trained knowledge.
+- No examples are provided.
+- **Format:** Return a single JSON object with exactly two keys: `"roast"` and `"compliment"`. Do not include any extra text before or after the JSON.
+
+**Input:**
+- user_description= "I am always anxious."
+
+**Note:** No examples are provided; the model must adhere strictly to the task and format instructions.
