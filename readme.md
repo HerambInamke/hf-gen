@@ -87,7 +87,7 @@ This is the core instruction that defines the AI's personality, rules, and outpu
 
 This is the template for the actual user input that gets sent to the model after the system prompt has been set.
 
-> Here is the user's self-description: "{user_input}"
+> Here is the user's self-description: "I am a overthinker and think about what people around me think of me"
 
 ### 2. Explaining the RTFC Framework
 
