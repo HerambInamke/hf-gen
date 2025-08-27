@@ -8,6 +8,7 @@ import json
 import time
 import requests
 import threading
+import re
 from dotenv import load_dotenv
 from colorama import init, Fore, Style
 import google.generativeai as genai
@@ -17,6 +18,17 @@ init()
 
 # Load environment variables from .env file
 load_dotenv()
+
+# Function to estimate token count
+def estimate_tokens(text):
+    """Estimate token count using a simple algorithm.
+    This is a rough approximation based on common tokenization patterns."""
+    # Count words (tokens are often words or parts of words)
+    words = len(re.findall(r'\b\w+\b', text))
+    # Count punctuation and special characters
+    punctuation = len(re.findall(r'[^\w\s]', text))
+    # Estimate token count
+    return words + punctuation
 
 # Get API key from environment
 api_key = os.getenv("GEMINI_API_KEY")
@@ -105,6 +117,10 @@ def get_savage_response(user_input):
         # Initialize Gemini 2.0 Flash model
         model = genai.GenerativeModel(model_name='gemini-1.5-flash')
         
+        # Count input tokens
+        prompt_text = system_prompt + f"Here is the user's self-description: \"{user_input}\""
+        input_token_count = estimate_tokens(prompt_text)
+        
         # Generate content with Gemini
         response = model.generate_content(
             [system_prompt, f"Here is the user's self-description: \"{user_input}\""]
@@ -117,6 +133,12 @@ def get_savage_response(user_input):
         
         # Parse the JSON response
         response_text = response.text
+        
+        # Count output tokens
+        output_token_count = estimate_tokens(response_text)
+        
+        # Log token usage
+        print(f"{Fore.BLUE}[TOKEN INFO] Input tokens: {input_token_count} | Output tokens: {output_token_count} | Total: {input_token_count + output_token_count}{Style.RESET_ALL}")
         
         # Remove markdown code block formatting if present
         if response_text.startswith("```json") or response_text.startswith("```"):
