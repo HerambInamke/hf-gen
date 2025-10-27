@@ -1,6 +1,35 @@
 # 🔥 SavageScript
 
-**SavageScript** is a terminal-based AI that roasts your life choices before validating your existence. It's the brutally honest friend you never knew you needed, packaged in a fun CLI experience. This project is currently under construction as part of a mentor-guided journey into the wild world of AI.
+**SavageScript** is an AI-powered application that roasts your life choices before validating your existence. It's the brutally honest friend you never knew you needed!
+
+## 🚀 Now Available in Two Versions!
+
+### 🌐 Web Version (NEW!)
+- Beautiful React frontend with TailwindCSS
+- Full Docker support
+- Dark/Light mode
+- Leaderboard feature
+- Smooth animations
+
+**Quick Start:**
+```bash
+# Make sure you have a .env file with GEMINI_API_KEY
+docker-compose up --build
+# Visit http://localhost:5000
+```
+
+See [README-DOCKER.md](README-DOCKER.md) for complete documentation.
+
+### 💻 CLI Version
+- Terminal-based experience
+- Original Python CLI
+
+**Quick Start:**
+```bash
+python src/savage_script.py
+```
+
+See [SETUP.md](SETUP.md) for CLI setup instructions.
 
 ---
 
